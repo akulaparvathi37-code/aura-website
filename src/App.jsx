@@ -57,9 +57,18 @@ function resolveAppRoute() {
 
   const pathname = (window.location.pathname || '/').replace(/\/+$/, '').toLowerCase() || '/'
   const hash = (window.location.hash || '').toLowerCase()
+  const search = (window.location.search || '').toLowerCase()
 
-  // 1. Supabase OAuth callback tokens in hash (e.g. access_token=...)
-  if (hash.includes('access_token') || hash.includes('refresh_token') || hash.includes('error=')) {
+  // 1. Supabase OAuth callback handling (hash tokens, PKCE code, or callback pathnames)
+  if (
+    hash.includes('access_token') ||
+    hash.includes('refresh_token') ||
+    hash.includes('error=') ||
+    search.includes('code=') ||
+    search.includes('error=') ||
+    pathname === '/auth/callback' ||
+    pathname === '/callback'
+  ) {
     return { page: 'home', openCheckout: false }
   }
 

@@ -85,6 +85,10 @@ export default function AuthModal({ isOpen, onClose, onNavigate }) {
       const msg = err?.message || ''
       if (msg.includes('provider is not enabled') || msg.includes('validation_failed')) {
         setErrorMsg('Google OAuth is awaiting activation in Supabase Dashboard. Please enable the Google provider under Auth -> Providers in Supabase.')
+      } else if (msg.includes('not configured')) {
+        setErrorMsg('Vercel deployment is missing Supabase environment variables. Please add VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in Vercel Project Settings.')
+      } else if (msg.includes('redirect_uri_mismatch')) {
+        setErrorMsg('Google Cloud OAuth redirect URI mismatch. Please verify that https://xgvtlaiujbgaxqhkttnh.supabase.co/auth/v1/callback is added in Google Cloud Console.')
       } else {
         setErrorMsg(msg || 'Failed to authenticate with Google. Please try again.')
       }

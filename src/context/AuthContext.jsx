@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { supabase } from '../lib/supabase/client'
+import { supabase, isSupabaseConfigured } from '../lib/supabase/client'
 
 const AuthContext = createContext(null)
 
@@ -87,9 +87,25 @@ export function AuthProvider({ children }) {
 
         setLoading(false)
 
-        // Clean up OAuth tokens from URL if present
-        if (typeof window !== 'undefined' && window.location.hash.includes('access_token')) {
-          window.history.replaceState(null, '', window.location.pathname)
+        // Clean up OAuth tokens, PKCE codes, or errors from URL to prevent duplicate redemption
+        if (typeof window !== 'undefined') {
+          const url = new URL(window.location.href)
+          const hasOAuthParams =
+            url.searchParams.has('code') ||
+            url.searchParams.has('error') ||
+            url.searchParams.has('error_description') ||
+            url.hash.includes('access_token') ||
+            url.hash.includes('refresh_token') ||
+            url.hash.includes('error=')
+
+          if (hasOAuthParams) {
+            const oauthErr = url.searchParams.get('error_description') || url.searchParams.get('error')
+            if (oauthErr) {
+              console.warn('[AURA Auth] Google OAuth notice:', oauthErr)
+            }
+            const cleanPath = url.pathname === '/auth/callback' || url.pathname === '/callback' ? '/' : url.pathname
+            window.history.replaceState(null, '', url.origin + cleanPath)
+          }
         }
       })
       subscription = authListener?.data?.subscription
@@ -104,17 +120,30 @@ export function AuthProvider({ children }) {
 
   // Google OAuth Login
   const signInWithGoogle = async () => {
+    if (!isSupabaseConfigured) {
+      const configErr = new Error(
+        'Supabase credentials are not configured on this deployment. Please define VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your Vercel Project Settings.'
+      )
+      console.error('[AURA Auth Error]:', configErr.message)
+      throw configErr
+    }
+
     const origin = typeof window !== 'undefined' ? window.location.origin : ''
-    const { error } = await supabase.auth.signInWithOAuth({
+    const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
         redirectTo: origin,
+        queryParams: {
+          prompt: 'select_account',
+          access_type: 'offline',
+        },
       },
     })
     if (error) {
       console.error('Google Auth Error:', error.message)
       throw error
     }
+    return data
   }
 
   // Logout
