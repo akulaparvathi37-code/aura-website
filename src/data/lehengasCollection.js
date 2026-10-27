@@ -1,0 +1,92 @@
+export const LEHENGAS_COLLECTION = [
+  {
+    id: 'lehenga-01',
+    name: 'Peacock Blue & Gold Bridal Lehenga',
+    category: 'Bridal Couture',
+    fabric: 'Pure Silk Velvet & Heavy Raw Silk with Antique Gold Zari',
+    color: 'Peacock Blue & Gold',
+    price: '₹84,500',
+    images: {
+      front: '/images/lehengas/lehenga-01-front.jpg',
+      rightAngle: '/images/lehengas/lehenga-01-right.jpg',
+      leftAngle: '/images/lehengas/lehenga-01-left.jpg',
+    },
+    imagePrompts: {
+      front: 'Luxury Indian bridal Lehenga in deep peacock blue with intricate antique gold zari embroidery, traditional Indian motifs, matching embroidered blouse and elegant dupatta, sophisticated Indian woman wearing the complete outfit, full-length FRONT VIEW, straight-on fashion photography, realistic silk texture and detailed embroidery, refined dark luxury studio background, soft cinematic lighting, premium Indian couture editorial photography, vertical composition.',
+      rightAngle: 'Exactly the same deep peacock blue and antique gold Indian bridal Lehenga from the front-view product, identical fabric, embroidery, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a RIGHT THREE-QUARTER ANGLE, full-length view, clearly showing the side silhouette and Lehenga volume, realistic textile texture, refined dark luxury studio background, soft cinematic lighting, premium Indian couture editorial photography, vertical composition.',
+      leftAngle: 'Exactly the same deep peacock blue and antique gold Indian bridal Lehenga from the front-view product, identical fabric, embroidery, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a LEFT THREE-QUARTER ANGLE, full-length view, clearly showing the opposite side silhouette and Lehenga volume, realistic textile texture, refined dark luxury studio background, soft cinematic lighting, premium Indian couture editorial photography, vertical composition.',
+    },
+  },
+  {
+    id: 'lehenga-02',
+    name: 'Wine Red & Champagne Gold Bridal Lehenga',
+    category: 'Heritage Bridal',
+    fabric: 'Velvet & Micro Silk with Champagne Gold Zari & Resham',
+    color: 'Wine Red & Gold',
+    price: '₹92,000',
+    images: {
+      front: '/images/lehengas/lehenga-02-front.jpg',
+      rightAngle: '/images/lehengas/lehenga-02-right.jpg',
+      leftAngle: '/images/lehengas/lehenga-02-left.jpg',
+    },
+    imagePrompts: {
+      front: 'Premium wine-red bridal Lehenga with luxurious champagne-gold zari embroidery, intricate floral and traditional Indian motifs, matching embroidered blouse and flowing dupatta, elegant Indian woman wearing the complete outfit, full-length FRONT VIEW, straight-on fashion photography, realistic rich textile texture, refined dark luxury studio background, soft cinematic lighting, high-end Indian couture editorial photography, vertical composition.',
+      rightAngle: 'Exactly the same wine-red and champagne-gold bridal Lehenga, identical embroidery, fabric, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a RIGHT THREE-QUARTER ANGLE, full-length fashion view, revealing the side profile and layered Lehenga silhouette, realistic fabric folds, luxury dark studio background, soft cinematic lighting, premium Indian couture photography, vertical composition.',
+      leftAngle: 'Exactly the same wine-red and champagne-gold bridal Lehenga, identical embroidery, fabric, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a LEFT THREE-QUARTER ANGLE, full-length fashion view, revealing the opposite side profile and layered Lehenga silhouette, realistic fabric folds, luxury dark studio background, soft cinematic lighting, premium Indian couture photography, vertical composition.',
+    },
+  },
+  {
+    id: 'lehenga-03',
+    name: 'Emerald Green & Gold Designer Lehenga',
+    category: 'Designer Festive',
+    fabric: 'Matka Silk with Antique Gold Zari & Dabka Embroidery',
+    color: 'Emerald Green & Gold',
+    price: '₹78,000',
+    images: {
+      front: '/images/lehengas/lehenga-03-front.jpg',
+      rightAngle: '/images/lehengas/lehenga-03-right.jpg',
+      leftAngle: '/images/lehengas/lehenga-03-left.jpg',
+    },
+    imagePrompts: {
+      front: 'Luxury emerald green designer Lehenga with intricate antique gold embroidery, elegant traditional Indian motifs, richly embroidered blouse and matching dupatta, sophisticated Indian woman wearing the complete outfit, full-length FRONT VIEW, straight-on composition, realistic premium textile details, dark luxury studio background, soft cinematic lighting, high-end Indian fashion editorial photography, vertical composition.',
+      rightAngle: 'Exactly the same emerald green and antique gold designer Lehenga, identical embroidery, fabric, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a RIGHT THREE-QUARTER ANGLE, full-length view, realistic Lehenga volume and side silhouette, detailed embroidery, premium dark luxury studio background, soft cinematic lighting, Indian couture editorial photography, vertical composition.',
+      leftAngle: 'Exactly the same emerald green and antique gold designer Lehenga, identical embroidery, fabric, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a LEFT THREE-QUARTER ANGLE, full-length view, realistic Lehenga volume and opposite side silhouette, detailed embroidery, premium dark luxury studio background, soft cinematic lighting, Indian couture editorial photography, vertical composition.',
+    },
+  },
+  {
+    id: 'lehenga-04',
+    name: 'Champagne Ivory & Gold Luxury Lehenga',
+    category: 'Contemporary Couture',
+    fabric: 'Handwoven Chanderi Silk with Fine Cutdana & Sequin Zari',
+    color: 'Champagne Ivory & Gold',
+    price: '₹89,000',
+    images: {
+      front: '/images/lehengas/lehenga-04-front.jpg',
+      rightAngle: '/images/lehengas/lehenga-04-right.jpg',
+      leftAngle: '/images/lehengas/lehenga-04-left.jpg',
+    },
+    imagePrompts: {
+      front: 'Elegant champagne ivory luxury Lehenga with delicate gold embroidery, refined floral motifs, sophisticated embroidered blouse and matching dupatta, Indian fashion model wearing the complete outfit, full-length FRONT VIEW, straight-on composition, realistic luxurious textile texture, subtle shimmer, dark sophisticated AURA luxury studio background, soft cinematic lighting, premium Indian couture editorial photography, vertical composition.',
+      rightAngle: 'Exactly the same champagne ivory and gold luxury Lehenga, identical fabric, embroidery, blouse, dupatta, colors and styling. Show the same woman wearing the same outfit from a RIGHT THREE-QUARTER ANGLE, full-length fashion view, clearly showing the side silhouette and elegant flowing fabric, realistic textile details, dark luxury studio background, soft cinematic lighting, premium Indian couture photography, vertical composition.',
+      leftAngle: 'Exactly the same champagne ivory and gold luxury Lehenga, identical fabric, embroidery, blouse, dupatta, colors and styling. Show the same woman wearing the same outfit from a LEFT THREE-QUARTER ANGLE, full-length fashion view, clearly showing the opposite side silhouette and elegant flowing fabric, realistic textile details, dark luxury studio background, soft cinematic lighting, premium Indian couture photography, vertical composition.',
+    },
+  },
+  {
+    id: 'lehenga-05',
+    name: 'Royal Purple & Gold Designer Lehenga',
+    category: 'Royal Couture',
+    fabric: 'Raw Silk & Velvet Brocade with 24k Tested Metallic Zari',
+    color: 'Royal Purple & Gold',
+    price: '₹86,500',
+    images: {
+      front: '/images/lehengas/lehenga-05-front.jpg',
+      rightAngle: '/images/lehengas/lehenga-05-right.jpg',
+      leftAngle: '/images/lehengas/lehenga-05-left.jpg',
+    },
+    imagePrompts: {
+      front: 'Luxury royal purple designer Lehenga with elaborate metallic gold embroidery and traditional Indian motifs, richly embroidered blouse, elegant matching dupatta, sophisticated Indian woman wearing the complete outfit, full-length FRONT VIEW, straight-on high-end fashion photography, realistic premium textile texture, detailed embroidery, dark luxury studio background, soft cinematic lighting, premium Indian couture editorial campaign, vertical composition.',
+      rightAngle: 'Exactly the same royal purple and metallic gold designer Lehenga, identical embroidery, fabric, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a RIGHT THREE-QUARTER ANGLE, full-length view, revealing the side silhouette and Lehenga volume, realistic fabric texture, dark luxury studio background, soft cinematic lighting, high-end Indian couture editorial photography, vertical composition.',
+      leftAngle: 'Exactly the same royal purple and metallic gold designer Lehenga, identical embroidery, fabric, blouse, dupatta, colors and styling. Show the same woman and exact same outfit from a LEFT THREE-QUARTER ANGLE, full-length view, revealing the opposite side silhouette and Lehenga volume, realistic fabric texture, dark luxury studio background, soft cinematic lighting, high-end Indian couture editorial photography, vertical composition.',
+    },
+  },
+]

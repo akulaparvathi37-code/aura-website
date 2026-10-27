@@ -1,0 +1,225 @@
+.previewContainer {
+  margin-top: 36px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.previewCard {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  background: rgba(10, 38, 33, 0.95);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(201, 168, 76, 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: color 0.25s ease, background 0.25s ease;
+  z-index: 5;
+}
+
+.closeBtn:hover {
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.15);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.imageColumn {
+  width: 100%;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  height: 310px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.productImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.tagBadge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(8, 28, 25, 0.88);
+  border: 1px solid var(--gold);
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.categoryLabel {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.productName {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: #F8F5EE;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.currentPrice {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--gold-light);
+}
+
+.originalPrice {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  color: var(--text-dim);
+  text-decoration: line-through;
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(245, 237, 214, 0.8);
+  margin-bottom: 20px;
+}
+
+.metaList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  background: rgba(5, 20, 18, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.metaItem {
+  display: flex;
+  gap: 8px;
+  font-size: 12.5px;
+}
+
+.metaLabel {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.metaValue {
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.shopCta {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+
+.shopCta:hover {
+  background: var(--gold);
+  color: #061F1C;
+}
+
+.wishlistBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  background: transparent;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.wishlistBtn:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+  background: rgba(201, 168, 76, 0.12);
+}
+
+.wishlistActive {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.22);
+}
+
+@media (max-width: 768px) {
+  .previewCard {
+    padding: 24px 18px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .imageFrame {
+    height: 240px;
+  }
+  .productName {
+    font-size: 22px;
+  }
+}

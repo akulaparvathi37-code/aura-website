@@ -1,0 +1,125 @@
+.card {
+  position: relative;
+  width: 100%;
+  height: 108px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.38);
+  background: rgba(6, 26, 23, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 168, 76, 0.75);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 16px rgba(201, 168, 76, 0.2);
+}
+
+.cardSelected {
+  border-color: var(--gold);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.7), 0 0 22px rgba(201, 168, 76, 0.35);
+  transform: scale(1.02);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 0 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 17.5px;
+  font-weight: 500;
+  color: #F8F5EE;
+  letter-spacing: 0.02em;
+  margin: 0;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.card:hover .title,
+.cardSelected .title {
+  color: var(--gold-light);
+}
+
+.exploreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+}
+
+.card:hover .exploreLink {
+  color: var(--gold-light);
+}
+
+.arrow {
+  color: var(--gold);
+  font-size: 12px;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}
+
+.swatchWrap {
+  position: relative;
+  width: 140px;
+  height: 100%;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.swatchImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.card:hover .swatchImg {
+  transform: scale(1.08);
+}
+
+.swatchFade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(6, 26, 23, 0.98) 0%,
+    rgba(6, 26, 23, 0.5) 25%,
+    transparent 65%
+  );
+  pointer-events: none;
+}

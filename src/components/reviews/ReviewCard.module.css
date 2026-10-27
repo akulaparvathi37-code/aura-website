@@ -1,0 +1,235 @@
+.card {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  padding: 0;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .archFrame {
+  transform: translateY(-4px);
+  border-color: rgba(198, 161, 91, 0.6);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(198, 161, 91, 0.2);
+}
+
+.card:focus-visible .archFrame {
+  outline: 2px solid #C6A15B;
+  outline-offset: 4px;
+}
+
+.archFrame {
+  position: relative;
+  width: 100%;
+  height: 360px;
+  border-top-left-radius: 120px;
+  border-top-right-radius: 120px;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  background: linear-gradient(175deg, rgba(11, 52, 64, 0.85) 0%, rgba(3, 23, 31, 0.92) 100%);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 2.2rem 1.4rem 1.4rem 1.4rem;
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+.cardSelected .archFrame {
+  border-color: #C6A15B;
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.75),
+    0 0 30px rgba(198, 161, 91, 0.35);
+  transform: scale(1.02);
+}
+
+.archGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(circle at 50% 0%, rgba(198, 161, 91, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+/* Header */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #C6A15B;
+}
+
+.avatarInitials {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #092C37 0%, #031D28 100%);
+  border: 1.5px solid #C6A15B;
+  color: #D8BD82;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: 0 0 10px rgba(198, 161, 91, 0.25);
+}
+
+.verifiedBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: #C6A15B;
+  color: #031D28;
+  font-size: 9px;
+  font-weight: bold;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid #072631;
+}
+
+.patronMeta {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.patronName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #F5F0E6;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.patronSub {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.74rem;
+  margin-top: 2px;
+}
+
+.verifiedText {
+  color: #C6A15B;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+.reviewDate {
+  color: rgba(200, 192, 178, 0.65);
+}
+
+/* Star rating */
+.starRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 0.75rem;
+}
+
+.star {
+  font-size: 0.95rem;
+  color: rgba(198, 161, 91, 0.25);
+}
+
+.starActive {
+  color: #C6A15B;
+  text-shadow: 0 0 8px rgba(198, 161, 91, 0.5);
+}
+
+/* Quote */
+.quoteBody {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.quoteMark {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 2.2rem;
+  line-height: 1;
+  color: rgba(198, 161, 91, 0.35);
+  margin-bottom: -0.5rem;
+  user-select: none;
+}
+
+.commentText {
+  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #F5F0E6;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Footer */
+.cardFooter {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(198, 161, 91, 0.15);
+}
+
+.productTag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.sparkleIcon {
+  font-size: 0.75rem;
+  color: #C6A15B;
+  flex-shrink: 0;
+}
+
+.productName {
+  font-size: 0.78rem;
+  color: #D8BD82;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,386 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 640px;
+  overflow: hidden;
+  background-color: #061F1C;
+  display: flex;
+  align-items: center;
+}
+
+.hero:focus {
+  outline: none;
+}
+
+.hero:focus-visible {
+  outline: none;
+}
+
+/* ---------- Hero Image Background: Image 1 ---------- */
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  will-change: transform;
+}
+
+.heroImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% center;
+  display: block;
+  transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity;
+}
+
+.heroImgActive {
+  opacity: 1;
+  z-index: 1;
+}
+
+.heroImgHidden {
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ---------- Subtle Vignette & Gradient Overlay ---------- */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    /* Left side gentle darkening for text contrast without muddying center */
+    linear-gradient(
+      90deg,
+      rgba(4, 18, 16, 0.82) 0%,
+      rgba(4, 18, 16, 0.68) 28%,
+      rgba(4, 18, 16, 0.28) 48%,
+      rgba(4, 18, 16, 0.05) 62%,
+      transparent 75%
+    ),
+    /* Top vignette for header line integration */
+    linear-gradient(
+      to bottom,
+      rgba(4, 18, 16, 0.55) 0%,
+      rgba(4, 18, 16, 0.15) 12%,
+      transparent 22%
+    ),
+    /* Bottom soft vignette */
+    linear-gradient(
+      to top,
+      rgba(4, 18, 16, 0.65) 0%,
+      transparent 18%
+    );
+}
+
+/* ---------- Left Content Editorial Block ---------- */
+.content {
+  position: relative;
+  z-index: 5;
+  padding-left: 54px;
+  padding-right: 24px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -20px; /* Optical vertical centering below top nav */
+}
+
+/* Small Label: TIMELESS TRADITION */
+.label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+  display: block;
+}
+
+/* Main Heading */
+.heading {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.0;
+  margin-bottom: 0;
+}
+
+.headingLine1 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5.2vw, 68px);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #F8F5EE;
+  line-height: 0.98;
+  display: block;
+}
+
+.headingLine2 {
+  font-family: var(--font-serif);
+  font-size: clamp(46px, 6.0vw, 78px);
+  font-weight: 400;
+  font-style: italic;
+  color: #F8F5EE;
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  display: block;
+  margin-top: 4px;
+}
+
+/* Supporting Text */
+.subtext {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 300;
+  line-height: 1.62;
+  color: rgba(245, 237, 214, 0.72);
+  margin-top: 24px;
+  margin-bottom: 28px;
+  max-width: 330px;
+}
+
+.subtext p {
+  margin: 0;
+}
+
+/* CTA Pill Button */
+.ctaWrap {
+  display: flex;
+  align-items: center;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border: 1px solid rgba(201, 168, 76, 0.65);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ctaArrow {
+  font-size: 13px;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+
+.ctaBtn:hover {
+  background: rgba(201, 168, 76, 0.12);
+  border-color: var(--gold-light);
+  color: #FFF;
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.22);
+}
+
+.ctaBtn:hover .ctaArrow {
+  transform: translateX(4px);
+}
+
+.ctaBtn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------- Side Chevrons (Thin Line Chevrons matching Image 2) ---------- */
+.controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+}
+
+.navChevron {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+  color: #EDE5D4;
+  opacity: 0.42;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    color 0.25s ease;
+}
+
+.navChevron:hover {
+  opacity: 0.95;
+  color: var(--gold-light);
+}
+
+.navChevronLeft {
+  left: 18px;
+}
+
+.navChevronLeft:hover {
+  transform: translateY(-50%) translateX(-3px);
+}
+
+.navChevronRight {
+  right: 18px;
+}
+
+.navChevronRight:hover {
+  transform: translateY(-50%) translateX(3px);
+}
+
+.navChevron:focus-visible {
+  outline: 1.5px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.navChevron:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+/* ---------- Slide Indicator (01 / 03 with line/dot indicator) ---------- */
+.slideIndicator {
+  position: absolute;
+  bottom: 36px;
+  left: 54px;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.slideCounter {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: rgba(245, 237, 214, 0.65);
+}
+
+.progressBars {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progressBarItem {
+  background: transparent;
+  border: none;
+  padding: 6px 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.progressLine {
+  display: block;
+  height: 1.5px;
+  width: 14px;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 2px;
+  transition:
+    width 0.4s var(--ease-luxury),
+    background 0.4s var(--ease-luxury);
+}
+
+.progressBarActive .progressLine {
+  width: 28px;
+  background: var(--gold);
+}
+
+.progressBarItem:hover .progressLine {
+  background: rgba(201, 168, 76, 0.7);
+}
+
+/* ---------- Responsive Layout ---------- */
+@media (max-width: 1024px) {
+  .content {
+    padding-left: 32px;
+    max-width: 460px;
+  }
+  .slideIndicator {
+    left: 32px;
+    bottom: 28px;
+  }
+  .navChevronLeft {
+    left: 10px;
+  }
+  .navChevronRight {
+    right: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 100vh;
+    min-height: 560px;
+    align-items: flex-end;
+    padding-bottom: 74px;
+  }
+
+  .heroImg {
+    object-position: 75% center;
+  }
+
+  .overlay {
+    background:
+      linear-gradient(
+        to top,
+        rgba(4, 18, 16, 0.94) 0%,
+        rgba(4, 18, 16, 0.72) 42%,
+        rgba(4, 18, 16, 0.25) 100%
+      );
+  }
+
+  .content {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  .headingLine1 {
+    font-size: 34px;
+  }
+
+  .headingLine2 {
+    font-size: 40px;
+  }
+
+  .subtext {
+    max-width: 100%;
+    font-size: 13px;
+    margin-top: 16px;
+    margin-bottom: 22px;
+  }
+
+  .slideIndicator {
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .navChevron {
+    display: none; /* Mobile swipe / touch controls preferred */
+  }
+}

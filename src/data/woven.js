@@ -1,0 +1,47 @@
+export const WOVEN_COLLECTIONS = [
+  {
+    id: 'handloom',
+    title: 'Handloom',
+    tagline: 'Centuries of Loom Artistry',
+    subtitle: 'Woven on heritage pit looms with pure gold zari threads.',
+    image: '/images/woven/handloom.jpg',
+    details: {
+      origin: 'Varanasi & Chanderi',
+      craftTime: '45 to 60 Days per Saree',
+      purity: '100% Certified Mulberry Silk Handloom',
+      description: 'Handcrafted by generational master weavers whose lineage dates back to royal court weavers. Every meter features individual warp-and-weft hand-interlocking using the revered kadwa technique.',
+      priceRange: '₹24,000 – ₹75,000',
+      highlights: ['Kadwa Hand-Weaving', '24k Tested Antique Zari', 'Reversible Pallu Detailing'],
+    },
+  },
+  {
+    id: 'silk-collection',
+    title: 'Silk Collection',
+    tagline: 'Opulent Katan & Raw Silks',
+    subtitle: 'Heavy GSM pure Katan and raw silks with exquisite luster.',
+    image: '/images/woven/silk-collection.jpg',
+    details: {
+      origin: 'Kanchipuram & Banaras',
+      craftTime: '30 to 45 Days per Saree',
+      purity: 'Pure Katan & Tussar Silk with Hallmarked Zari',
+      description: 'Sculpted from high-density pure silk yarn that offers a regal drape and unmatched tactile richness. Embellished with shikargah motifs and traditional floral vines.',
+      priceRange: '₹32,000 – ₹95,000',
+      highlights: ['Pure Mulberry Warp', 'Coromandel Gold Border', 'Silk Mark Certified'],
+    },
+  },
+  {
+    id: 'designer-edit',
+    title: 'Designer Edit',
+    tagline: 'Couture Saree Silhouettes',
+    subtitle: 'Contemporary silhouettes meeting traditional royal embroidery.',
+    image: '/images/woven/designer-edit.jpg',
+    details: {
+      origin: 'AURA Couture Atelier',
+      craftTime: 'Limited Studio Runs (12 Pieces Worldwide)',
+      purity: 'Hand-dyed Artisanal Silk with Micro-Cut Zari',
+      description: 'Curated by leading Indian couturiers for modern destination weddings and gala soirees. Features architectural drapes and tailored blouse pairings.',
+      priceRange: '₹45,000 – ₹1,20,000',
+      highlights: ['Bespoke Custom Fit', 'Exclusive Studio Edition', 'Hand-Numbered Tag'],
+    },
+  },
+]

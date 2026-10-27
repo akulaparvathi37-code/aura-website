@@ -1,0 +1,41 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.subTabsNav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(128, 107, 69, 0.25);
+  margin-bottom: 1.5rem;
+}
+
+.subTabBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.75rem 1.4rem;
+  color: #c8c0b2;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.subTabBtn:hover {
+  color: #f5f0e6;
+}
+
+.subTabBtnActive {
+  color: #c6a15b;
+  border-bottom-color: #c6a15b;
+  font-weight: 600;
+}

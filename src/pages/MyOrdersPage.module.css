@@ -1,0 +1,463 @@
+.page {
+  min-height: 100vh;
+  background-color: var(--color-bg, #0B0B0C);
+  color: var(--color-text, #F5F3EF);
+  padding-top: calc(var(--header-height, 80px) + 32px);
+  padding-bottom: 80px;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Header Block */
+.headerBlock {
+  margin-bottom: 40px;
+}
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  color: var(--color-gold, #C5A059);
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 20px;
+  padding: 0;
+  transition: opacity 0.2s ease;
+}
+
+.breadcrumb:hover {
+  opacity: 0.8;
+}
+
+.eyebrow {
+  display: block;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.22em;
+  color: var(--color-gold, #C5A059);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.headingRow {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.heading {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.refreshBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--color-gold, #C5A059);
+  padding: 8px 16px;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.refreshBtn:hover {
+  background: rgba(197, 160, 89, 0.18);
+  border-color: var(--color-gold, #C5A059);
+}
+
+.refreshBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.subtext {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.95rem;
+  color: rgba(245, 243, 239, 0.7);
+  max-width: 680px;
+  line-height: 1.6;
+  margin: 0 0 16px 0;
+}
+
+.liveIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: rgba(245, 243, 239, 0.55);
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10B981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* Loading & Empty States */
+.loadingState,
+.emptyState {
+  background: rgba(18, 18, 20, 0.6);
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  border-radius: 4px;
+  padding: 64px 24px;
+  text-align: center;
+  max-width: 640px;
+  margin: 40px auto;
+}
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 2px solid rgba(197, 160, 89, 0.2);
+  border-top-color: var(--color-gold, #C5A059);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.emptyIcon {
+  font-size: 2.4rem;
+  color: var(--color-gold, #C5A059);
+  display: block;
+  margin-bottom: 16px;
+}
+
+.emptyTitle {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+}
+
+.emptySubtext {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.95rem;
+  color: rgba(245, 243, 239, 0.65);
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+}
+
+.exploreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--color-gold, #C5A059);
+  color: #0B0B0C;
+  border: none;
+  padding: 12px 28px;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.exploreBtn:hover {
+  background: #D8B775;
+  transform: translateY(-1px);
+}
+
+/* Orders List */
+.ordersList {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Single Order Card */
+.orderCard {
+  background: rgba(18, 18, 20, 0.7);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.orderCard:hover {
+  border-color: rgba(197, 160, 89, 0.4);
+}
+
+/* Order Header Row */
+.cardHeader {
+  background: rgba(24, 24, 28, 0.8);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.15);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.metaGroup {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.orderNumber {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+}
+
+.orderDate {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.85rem;
+  color: rgba(245, 243, 239, 0.6);
+}
+
+.badgesGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Status Badges */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 12px;
+  font-size: 0.76rem;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.statusPending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.statusProcessing {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60A5FA;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.statusShipping {
+  background: rgba(168, 85, 247, 0.15);
+  color: #C084FC;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.statusDelivered {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.statusCancelled {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.paymentBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.74rem;
+  font-family: var(--font-body, 'Jost', sans-serif);
+  letter-spacing: 0.06em;
+}
+
+.paymentPaid {
+  background: rgba(16, 185, 129, 0.12);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.paymentPending {
+  background: rgba(245, 158, 11, 0.12);
+  color: #FBBF24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+/* Card Body: Items List */
+.itemsTable {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.lineItem {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.lineItem:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.itemImageWrap {
+  width: 70px;
+  height: 90px;
+  border-radius: 2px;
+  overflow: hidden;
+  background: #1A1A1E;
+  flex-shrink: 0;
+  border: 1px solid rgba(197, 160, 89, 0.15);
+}
+
+.itemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemDetails {
+  flex: 1;
+  min-width: 0;
+}
+
+.itemName {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.15rem;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.itemVariant {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.8rem;
+  color: var(--color-gold, #C5A059);
+  margin-bottom: 4px;
+}
+
+.itemQuantityPrice {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.85rem;
+  color: rgba(245, 243, 239, 0.6);
+}
+
+.itemLineTotal {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: #FFFFFF;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Card Footer: Summary & Destination */
+.cardFooter {
+  background: rgba(14, 14, 16, 0.9);
+  border-top: 1px solid rgba(197, 160, 89, 0.12);
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footerInfo {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.85rem;
+  color: rgba(245, 243, 239, 0.7);
+  line-height: 1.5;
+}
+
+.footerPaymentMethod {
+  color: var(--color-gold, #C5A059);
+  font-weight: 500;
+}
+
+.footerTotalGroup {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.totalLabel {
+  font-family: var(--font-body, 'Jost', sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 239, 0.6);
+}
+
+.totalAmount {
+  font-family: var(--font-heading, 'Cormorant Garamond', Georgia, serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--color-gold, #C5A059);
+}
+
+@media (max-width: 640px) {
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .itemLineTotal {
+    text-align: left;
+    margin-top: 6px;
+  }
+  .lineItem {
+    align-items: flex-start;
+  }
+}

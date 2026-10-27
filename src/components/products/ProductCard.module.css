@@ -1,0 +1,292 @@
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #08221D;
+  border: 1px solid rgba(201, 168, 76, 0.22);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.35s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  user-select: none;
+}
+
+.card:hover {
+  border-color: rgba(201, 168, 76, 0.65);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7), 0 0 20px rgba(201, 168, 76, 0.15);
+}
+
+.cardActive {
+  border-color: var(--gold, #C9A84C);
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(201, 168, 76, 0.35);
+  transform: translateY(-2px);
+}
+
+.activeBadge {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(8, 30, 26, 0.92);
+  border: 1px solid var(--gold, #C9A84C);
+  border-radius: 999px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold-light, #E0C988);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.activeDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold, #C9A84C);
+  box-shadow: 0 0 6px var(--gold, #C9A84C);
+}
+
+/* Image Wrap */
+.imageContainer {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: #061A17;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+/* Dark gradient at the bottom of the image for smooth contrast */
+.imageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 26, 23, 0.15) 0%,
+    transparent 45%,
+    rgba(6, 26, 23, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+/* Wishlist Heart Button */
+.wishlistBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 4;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(6, 26, 23, 0.65);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #F8F5EE;
+  transition: all 0.25s ease;
+}
+
+.wishlistBtn:hover {
+  background: rgba(6, 26, 23, 0.95);
+  border-color: var(--gold);
+  transform: scale(1.1);
+}
+
+.wishlistActive {
+  background: rgba(201, 168, 76, 0.2);
+  border-color: var(--gold);
+  color: #E25C5C;
+}
+
+.wishlistIcon {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.wishlistBtn:active .wishlistIcon {
+  transform: scale(1.3);
+}
+
+/* Quick View Hover Badge */
+.quickViewBadge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  background: rgba(6, 26, 23, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  pointer-events: none;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.card:hover .quickViewBadge {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Details Section */
+.details {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: #08221D;
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 500;
+  color: #F8F5EE;
+  margin: 0;
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.01em;
+  transition: color 0.2s ease;
+  pointer-events: none;
+}
+
+.card:hover .name {
+  color: var(--gold-light);
+}
+
+.priceRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.price {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #F8F5EE;
+}
+
+.originalPrice {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: rgba(245, 237, 214, 0.45);
+  text-decoration: line-through;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  pointer-events: none;
+}
+
+.stars {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.reviewCount {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  color: rgba(245, 237, 214, 0.6);
+}
+
+/* Bag Button */
+.bagBtn {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: #0E352F;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.bagBtn:hover {
+  background: var(--gold);
+  color: #07211C;
+  border-color: var(--gold);
+  transform: scale(1.08);
+}
+
+.bagBtnAdded {
+  background: var(--gold);
+  color: #07211C;
+  border-color: var(--gold);
+  animation: pulseBag 0.4s ease;
+}
+
+@keyframes pulseBag {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+  100% { transform: scale(1); }
+}
+
+.bagIcon {
+  width: 14px;
+  height: 14px;
+}

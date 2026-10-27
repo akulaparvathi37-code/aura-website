@@ -1,0 +1,190 @@
+.card {
+  position: relative;
+  width: 100%;
+  background: #08221D;
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.clickableCard {
+  cursor: pointer;
+  outline: none;
+}
+
+.clickableCard:focus-visible {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.5);
+}
+
+.likeBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(6, 26, 23, 0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(201, 168, 76, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  padding: 0;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.15s;
+}
+
+.likeBtn:hover {
+  background: rgba(8, 34, 29, 0.95);
+  border-color: var(--gold);
+  transform: scale(1.08);
+}
+
+.likeBtn:active {
+  transform: scale(0.95);
+}
+
+.heartIcon {
+  font-size: 17px;
+  line-height: 1;
+  color: rgba(245, 237, 214, 0.8);
+  transition: color 0.2s;
+  user-select: none;
+}
+
+.liked {
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.22);
+}
+
+.liked .heartIcon {
+  color: #E2BC5A;
+  text-shadow: 0 0 8px rgba(226, 188, 90, 0.8);
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: #061A17;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.details {
+  padding: 18px 16px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: #08221D;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 500;
+  color: #F8F5EE;
+  margin: 0 0 6px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.meta {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 400;
+  color: rgba(245, 237, 214, 0.65);
+  margin: 0 0 12px;
+  line-height: 1.4;
+}
+
+.priceRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-bottom: 14px;
+}
+
+.price {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--gold-light);
+  letter-spacing: 0.02em;
+}
+
+.colorLabel {
+  font-family: var(--font-sans);
+  font-size: 10.5px;
+  color: rgba(245, 237, 214, 0.5);
+}
+
+.addBtn {
+  width: 100%;
+  height: 38px;
+  border-radius: 6px;
+  border: 1px solid rgba(201, 168, 76, 0.5);
+  background: rgba(6, 26, 23, 0.85);
+  color: #F8F5EE;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.addBtn:hover {
+  background: var(--gold);
+  color: #07211C;
+  border-color: var(--gold);
+}
+
+.addBtnAdded {
+  background: var(--gold);
+  color: #07211C;
+  border-color: var(--gold);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .details {
+    padding: 12px 10px 14px;
+  }
+  .name {
+    font-size: 13.5px;
+  }
+  .meta {
+    font-size: 10.5px;
+    margin-bottom: 8px;
+  }
+  .price {
+    font-size: 13px;
+  }
+  .addBtn {
+    height: 34px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+}

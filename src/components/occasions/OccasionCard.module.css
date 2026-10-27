@@ -1,0 +1,131 @@
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  background: #08221D;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  transition:
+    border-color 0.35s ease,
+    transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.35s ease;
+  user-select: none;
+}
+
+.card:hover {
+  border-color: rgba(201, 168, 76, 0.75);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7), 0 0 20px rgba(201, 168, 76, 0.2);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* Image Background */
+.imageWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+/* Luxury Gradient Overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(4, 18, 15, 0.94) 0%,
+    rgba(4, 18, 15, 0.55) 45%,
+    rgba(4, 18, 15, 0.1) 80%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Card Content at the bottom */
+.content {
+  position: relative;
+  z-index: 2;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tag {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(18px, 1.8vw, 22px);
+  font-weight: 500;
+  color: #F8F5EE;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease;
+}
+
+.card:hover .title {
+  color: var(--gold-light);
+}
+
+.exploreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  transition: color 0.25s ease;
+  margin-top: 4px;
+}
+
+.card:hover .exploreLink {
+  color: var(--gold-light);
+}
+
+.arrow {
+  color: var(--gold);
+  font-size: 12px;
+  transition: transform 0.25s ease;
+}
+
+.card:hover .arrow {
+  transform: translateX(4px);
+}

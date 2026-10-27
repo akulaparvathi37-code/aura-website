@@ -1,0 +1,298 @@
+.reviewsSection {
+  position: relative;
+  width: 100%;
+  min-height: 720px;
+  background-image: url('/images/reviews/reviews-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  padding: 6.5rem 0 7rem 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* Scoped dark overlay for Section 6 with rich peacock depth */
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      ellipse 85% 70% at 50% 45%,
+      rgba(7, 38, 49, 0.72) 0%,
+      rgba(3, 23, 31, 0.88) 60%,
+      rgba(1, 16, 23, 0.96) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.headerText {
+  max-width: 650px;
+}
+
+.kicker {
+  display: inline-block;
+  font-family: 'Cinzel', serif, sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #C6A15B;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  color: #F5F0E6;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.8rem 0;
+}
+
+.description {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: #C8C0B2;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Action Row */
+.actionRow {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, rgba(198, 161, 91, 0.2) 0%, rgba(198, 161, 91, 0.08) 100%);
+  border: 1px solid rgba(198, 161, 91, 0.45);
+  color: #F5F0E6;
+  padding: 0.85rem 1.65rem;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.ctaButton:hover {
+  background: linear-gradient(135deg, #C6A15B 0%, #A8843E 100%);
+  color: #031D28;
+  border-color: #D8BD82;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(198, 161, 91, 0.35);
+}
+
+.ctaSparkle {
+  color: #C6A15B;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaSparkle {
+  color: #031D28;
+  transform: rotate(45deg) scale(1.15);
+}
+
+.navControls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(1, 29, 40, 0.6);
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  color: #D8BD82;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+  background: rgba(198, 161, 91, 0.2);
+  border-color: #C6A15B;
+  color: #FFF;
+  transform: scale(1.06);
+}
+
+/* 3D Viewport */
+.viewport {
+  position: relative;
+  width: 100%;
+  height: 440px;
+  overflow: visible;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none;
+  perspective: 1400px;
+}
+
+.viewport:active {
+  cursor: grabbing;
+}
+
+.stage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform-style: preserve-3d;
+}
+
+.cardSlot {
+  position: absolute;
+  top: -180px;
+  left: -140px;
+  width: 280px;
+  height: 360px;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 640px) {
+  .cardSlot {
+    left: -125px;
+    width: 250px;
+  }
+}
+
+/* Loading State */
+.loadingWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  gap: 1rem;
+}
+
+.spinner {
+  width: 38px;
+  height: 38px;
+  border: 2px solid rgba(198, 161, 91, 0.2);
+  border-top-color: #C6A15B;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingText {
+  font-size: 0.9rem;
+  color: #D8BD82;
+  letter-spacing: 0.05em;
+}
+
+/* Empty State */
+.emptyContainer {
+  background: linear-gradient(145deg, rgba(11, 52, 64, 0.5) 0%, rgba(3, 23, 31, 0.7) 100%);
+  border: 1px dashed rgba(198, 161, 91, 0.35);
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 1rem auto 2rem auto;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.emptyIcon {
+  font-size: 2.2rem;
+  color: #C6A15B;
+  margin-bottom: 1rem;
+}
+
+.emptyHeading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem;
+  font-weight: 500;
+  color: #F5F0E6;
+  margin: 0 0 0.85rem 0;
+}
+
+.emptyDesc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.95rem;
+  color: #C8C0B2;
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 auto 2rem auto;
+}
+
+.emptyCtaBtn {
+  background: linear-gradient(135deg, #C6A15B 0%, #A8843E 100%);
+  color: #031D28;
+  border: none;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(198, 161, 91, 0.3);
+  transition: all 0.25s ease;
+}
+
+.emptyCtaBtn:hover {
+  background: linear-gradient(135deg, #D8BD82 0%, #C6A15B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(198, 161, 91, 0.45);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .reviewsSection {
+    padding: 4.5rem 0 5rem 0;
+  }
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .actionRow {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

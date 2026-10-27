@@ -1,0 +1,435 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 1.6rem;
+  color: #f5f0e6;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.35rem 0;
+}
+
+.subtitle {
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  color: #c8c0b2;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.headerActions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.actionBtn {
+  background: rgba(11, 52, 64, 0.7);
+  border: 1px solid #806b45;
+  color: #d8bd82;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.actionBtn:hover {
+  background: rgba(198, 161, 91, 0.15);
+  color: #f5f0e6;
+  border-color: #c6a15b;
+}
+
+.primaryActionBtn {
+  background: linear-gradient(135deg, #c6a15b, #b59048);
+  color: #072631;
+  border: none;
+  padding: 0.6rem 1.3rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.primaryActionBtn:hover {
+  box-shadow: 0 0 16px rgba(198, 161, 91, 0.35);
+  transform: translateY(-1px);
+}
+
+/* 4 Statistics Cards */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.statCard {
+  background: #0b3440;
+  border: 1px solid rgba(128, 107, 69, 0.4);
+  border-radius: 6px;
+  padding: 1.4rem 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.statCard:hover {
+  border-color: #c6a15b;
+  transform: translateY(-2px);
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c8c0b2;
+  font-weight: 500;
+}
+
+.statValue {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 1.8rem;
+  color: #f5f0e6;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.statTrend {
+  font-size: 0.72rem;
+  color: #d8bd82;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 0.2rem;
+}
+
+.statIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(198, 161, 91, 0.12);
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c6a15b;
+  flex-shrink: 0;
+}
+
+/* Two Column Layout */
+.dashboardColumns {
+  display: grid;
+  grid-template-columns: 1.7fr 1.3fr;
+  gap: 1.5rem;
+}
+
+@media (max-width: 960px) {
+  .dashboardColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.panel {
+  background: #0b3440;
+  border: 1px solid rgba(128, 107, 69, 0.35);
+  border-radius: 6px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 107, 69, 0.25);
+  padding-bottom: 0.85rem;
+}
+
+.panelTitle {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 1.1rem;
+  color: #f5f0e6;
+  letter-spacing: 0.05em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.panelCountBadge {
+  font-size: 0.72rem;
+  background: rgba(198, 161, 91, 0.15);
+  color: #d8bd82;
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+}
+
+.panelActionLink {
+  background: transparent;
+  border: none;
+  color: #c6a15b;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.panelActionLink:hover {
+  color: #f5f0e6;
+  text-decoration: underline;
+}
+
+/* Recent Orders Table */
+.ordersTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.ordersTable th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #c8c0b2;
+  padding: 0.6rem 0.5rem;
+  border-bottom: 1px solid rgba(128, 107, 69, 0.2);
+  font-weight: 500;
+}
+
+.ordersTable td {
+  padding: 0.85rem 0.5rem;
+  border-bottom: 1px solid rgba(128, 107, 69, 0.12);
+  color: #f5f0e6;
+}
+
+.ordersTable tr:last-child td {
+  border-bottom: none;
+}
+
+.orderNumber {
+  font-weight: 600;
+  color: #d8bd82;
+  letter-spacing: 0.04em;
+}
+
+.customerText {
+  display: flex;
+  flex-direction: column;
+}
+
+.customerName {
+  font-weight: 500;
+}
+
+.customerEmail {
+  font-size: 0.72rem;
+  color: #c8c0b2;
+}
+
+.orderDate {
+  font-size: 0.78rem;
+  color: #c8c0b2;
+}
+
+.orderTotal {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-weight: 600;
+  color: #f5f0e6;
+}
+
+/* Status Badges */
+.statusBadge {
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.statusPending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.statusProcessing {
+  background: rgba(59, 130, 246, 0.15);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.statusShipping {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+}
+
+.statusDelivered {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.statusCancelled {
+  background: rgba(239, 68, 68, 0.15);
+  color: #fca5a5;
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+/* Low Stock Items List */
+.lowStockList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.lowStockItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: rgba(7, 38, 49, 0.6);
+  border: 1px solid rgba(128, 107, 69, 0.25);
+  border-radius: 4px;
+  gap: 0.85rem;
+  transition: border-color 0.2s;
+}
+
+.lowStockItem:hover {
+  border-color: #c6a15b;
+}
+
+.lowStockImg {
+  width: 44px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 3px;
+  border: 1px solid rgba(128, 107, 69, 0.3);
+  flex-shrink: 0;
+}
+
+.lowStockInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.lowStockName {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: #f5f0e6;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lowStockSku {
+  font-size: 0.7rem;
+  color: #c8c0b2;
+}
+
+.lowStockQuantity {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.stockCountPill {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+}
+
+.stockCountPillZero {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
+}
+
+.editItemBtn {
+  background: transparent;
+  border: 1px solid rgba(198, 161, 91, 0.4);
+  color: #d8bd82;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.editItemBtn:hover {
+  background: rgba(198, 161, 91, 0.15);
+  color: #f5f0e6;
+  border-color: #c6a15b;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #c8c0b2;
+  font-size: 0.85rem;
+}

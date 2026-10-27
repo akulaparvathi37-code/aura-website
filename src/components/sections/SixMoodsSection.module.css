@@ -1,0 +1,183 @@
+.section {
+  position: relative;
+  background-color: var(--bg-primary);
+  background-image: url('/images/six-moods/palace-bg.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  padding: 80px 0 90px;
+  overflow: hidden;
+  border-top: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 54px;
+}
+
+/* ---------- Header Row ---------- */
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 36px;
+}
+
+.titleWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash {
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.heading {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 3.8vw, 48px);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #F8F5EE;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.subtext {
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 300;
+  color: var(--text-secondary);
+  letter-spacing: 0.02em;
+}
+
+.viewAllLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  padding-bottom: 6px;
+}
+
+.viewAllLink:hover {
+  color: var(--gold-light);
+}
+
+.viewAllLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+.arrow {
+  transition: transform 0.25s ease;
+  color: var(--gold);
+}
+
+/* ---------- CompleteShelf 3D Shelf Viewport ---------- */
+.shelfViewport {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.shelfViewport:active {
+  cursor: grabbing;
+}
+
+.shelfStage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardSlot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 195px;
+  height: 320px;
+  margin-top: -160px;
+  margin-left: -97.5px;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  pointer-events: auto;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 32px;
+  }
+  .shelfViewport {
+    height: 350px;
+  }
+  .cardSlot {
+    width: 180px;
+    height: 290px;
+    margin-top: -145px;
+    margin-left: -90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0 70px;
+  }
+  .container {
+    padding: 0 20px;
+  }
+  .headerRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .heading {
+    font-size: 30px;
+  }
+  .shelfViewport {
+    height: 310px;
+  }
+  .cardSlot {
+    width: 160px;
+    height: 260px;
+    margin-top: -130px;
+    margin-left: -80px;
+  }
+}

@@ -1,0 +1,191 @@
+/* ============================================================
+   AURA — Global Design System
+   ============================================================ */
+
+/* ---------- CSS Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- Design Tokens ---------- */
+:root {
+  /* Backgrounds */
+  --bg-primary:      #0A2E2A;
+  --bg-secondary:    #0D3B38;
+  --bg-deep:         #061F1C;
+  --bg-hero:         #081C19;
+  --surface:         #112E29;
+  --surface-alt:     #0F3530;
+
+  /* Typography */
+  --text-primary:    #F5EDD6;
+  --text-secondary:  #C4B896;
+  --text-dim:        #8A7E6A;
+
+  /* Gold system */
+  --gold:            #C9A84C;
+  --gold-light:      #E2C26E;
+  --gold-dark:       #9A7A2E;
+  --gold-border:     rgba(201, 168, 76, 0.30);
+  --gold-glow:       rgba(201, 168, 76, 0.12);
+
+  /* Overlays */
+  --overlay-dark:    rgba(6, 31, 28, 0.80);
+  --overlay-hero:    rgba(6, 20, 18, 0.45);
+  --overlay-card:    linear-gradient(to top, rgba(4, 16, 14, 0.95) 0%, rgba(4, 16, 14, 0.50) 45%, transparent 80%);
+
+  /* Shadows */
+  --shadow-card:     0 8px 40px rgba(0, 0, 0, 0.55);
+  --shadow-hover:    0 20px 70px rgba(0, 0, 0, 0.70);
+  --shadow-gold:     0 0 30px rgba(201, 168, 76, 0.20);
+
+  /* Borders */
+  --border-gold:     1px solid rgba(201, 168, 76, 0.28);
+  --border-surface:  1px solid rgba(255, 255, 255, 0.06);
+  --border-card:     1px solid rgba(201, 168, 76, 0.15);
+
+  /* Spacing */
+  --section-py:      90px;
+  --section-px:      64px;
+  --gap-card:        14px;
+  --nav-h:           68px;
+
+  /* Fonts */
+  --font-serif:      'Cormorant Garamond', Georgia, serif;
+  --font-sans:       'Jost', 'Helvetica Neue', sans-serif;
+
+  /* Transitions */
+  --ease-luxury:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:        240ms;
+  --dur-med:         480ms;
+  --dur-slow:        800ms;
+}
+
+/* ---------- Typography Utilities ---------- */
+.font-serif        { font-family: var(--font-serif); }
+.font-sans         { font-family: var(--font-sans); }
+.text-gold         { color: var(--gold); }
+.text-cream        { color: var(--text-primary); }
+.text-secondary    { color: var(--text-secondary); }
+
+/* ---------- Eyebrow Label ---------- */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* ---------- Pill Button ---------- */
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 24px;
+  border: var(--border-gold);
+  border-radius: 100px;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-luxury),
+    color var(--dur-fast) var(--ease-luxury),
+    box-shadow var(--dur-fast) var(--ease-luxury);
+}
+
+.btn-pill:hover {
+  background: var(--gold-glow);
+  box-shadow: var(--shadow-gold);
+}
+
+/* ---------- Section base ---------- */
+.section {
+  position: relative;
+  padding: var(--section-py) var(--section-px);
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold-border); border-radius: 4px; }
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Responsive tokens ---------- */
+@media (max-width: 1024px) {
+  :root {
+    --section-px: 40px;
+    --section-py: 70px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-px: 20px;
+    --section-py: 56px;
+    --nav-h: 60px;
+  }
+}

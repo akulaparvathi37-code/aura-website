@@ -1,0 +1,232 @@
+.portal {
+  min-height: 100vh;
+  background-color: #07211c;
+  background-image: 
+    radial-gradient(ellipse at 20% 0%, rgba(201, 168, 76, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  color: #f7f3eb;
+  padding: 6rem 2rem 4rem 2rem;
+  box-sizing: border-box;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Top bar */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.backBtn {
+  background: transparent;
+  color: #a3b899;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  padding: 0.55rem 1.1rem;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.backBtn:hover {
+  color: #c9a84c;
+  border-color: #c9a84c;
+  background: rgba(201, 168, 76, 0.08);
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portalTitle {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 1.5rem;
+  color: #f7f3eb;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
+.adminBadge {
+  background: rgba(201, 168, 76, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.4);
+  color: #c9a84c;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 0.25rem 0.65rem;
+  border-radius: 12px;
+  text-transform: uppercase;
+}
+
+.adminUserArea {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.adminAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #c9a84c;
+}
+
+.adminEmail {
+  font-size: 0.8rem;
+  color: #a3b899;
+}
+
+/* Tab Navigation */
+.tabsNav {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.18);
+  margin-bottom: 2.5rem;
+  overflow-x: auto;
+}
+
+.tabBtn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 0.85rem 1.5rem;
+  color: #a3b899;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.tabBtn:hover {
+  color: #f7f3eb;
+}
+
+.tabBtnActive {
+  color: #c9a84c;
+  border-bottom-color: #c9a84c;
+  font-weight: 600;
+}
+
+.tabContent {
+  animation: tabFadeIn 0.3s ease-out;
+}
+
+/* Access Gate / Forbidden screen */
+.gateContainer {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.gateCard {
+  background: rgba(11, 44, 38, 0.6);
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  padding: 3rem 2.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.gateIcon {
+  color: #c9a84c;
+  margin-bottom: 0.5rem;
+}
+
+.gateTitle {
+  font-family: var(--font-serif, 'Cinzel', serif);
+  font-size: 1.4rem;
+  color: #f7f3eb;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.gateDesc {
+  font-size: 0.88rem;
+  color: #a3b899;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gateActionBtn {
+  background: linear-gradient(135deg, #c9a84c, #b3923b);
+  color: #07211c;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s;
+}
+
+.gateActionBtn:hover {
+  box-shadow: 0 0 16px rgba(201, 168, 76, 0.4);
+  transform: translateY(-1px);
+}
+
+.gateSecondaryBtn {
+  background: transparent;
+  color: #a3b899;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  padding: 0.7rem 1.6rem;
+  font-family: var(--font-sans, 'Montserrat', sans-serif);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: all 0.2s;
+}
+
+.gateSecondaryBtn:hover {
+  color: #f7f3eb;
+  border-color: #c9a84c;
+}
+
+@keyframes tabFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
