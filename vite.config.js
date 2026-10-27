@@ -6,6 +6,7 @@ import { razorpayServerPlugin } from './src/lib/razorpay/serverMiddleware.js'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   return {
+    envPrefix: ['VITE_', 'NEXT_PUBLIC_'],
     plugins: [react(), razorpayServerPlugin(env)],
   }
 })

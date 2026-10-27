@@ -55,38 +55,50 @@ export function AuthProvider({ children }) {
 
   useEffect(() => {
     // 1. Initial session check
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-      setUser(session?.user ?? null)
-      if (session?.user) {
-        syncProfile(session.user)
-      }
-      setLoading(false)
-    })
+    supabase.auth
+      .getSession()
+      .then((res) => {
+        const session = res?.data?.session ?? null
+        setSession(session)
+        setUser(session?.user ?? null)
+        if (session?.user) {
+          syncProfile(session.user)
+        }
+      })
+      .catch((err) => {
+        console.warn('Auth getSession note:', err?.message || err)
+      })
+      .finally(() => {
+        setLoading(false)
+      })
 
     // 2. Real-time auth state listener
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, currentSession) => {
-      setSession(currentSession)
-      setUser(currentSession?.user ?? null)
+    let subscription = null
+    try {
+      const authListener = supabase?.auth?.onAuthStateChange?.(async (event, currentSession) => {
+        setSession(currentSession)
+        setUser(currentSession?.user ?? null)
 
-      if (currentSession?.user) {
-        await syncProfile(currentSession.user)
-      } else {
-        setProfile(null)
-      }
+        if (currentSession?.user) {
+          await syncProfile(currentSession.user)
+        } else {
+          setProfile(null)
+        }
 
-      setLoading(false)
+        setLoading(false)
 
-      // Clean up OAuth tokens from URL if present
-      if (typeof window !== 'undefined' && window.location.hash.includes('access_token')) {
-        window.history.replaceState(null, '', window.location.pathname)
-      }
-    })
+        // Clean up OAuth tokens from URL if present
+        if (typeof window !== 'undefined' && window.location.hash.includes('access_token')) {
+          window.history.replaceState(null, '', window.location.pathname)
+        }
+      })
+      subscription = authListener?.data?.subscription
+    } catch (err) {
+      console.warn('Auth state change listener note:', err?.message || err)
+    }
 
     return () => {
-      subscription.unsubscribe()
+      subscription?.unsubscribe?.()
     }
   }, [])
 

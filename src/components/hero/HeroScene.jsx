@@ -1,4 +1,4 @@
-import { useRef, useMemo, useEffect } from 'react'
+import { useRef, useMemo, useEffect, Component } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
@@ -84,26 +84,45 @@ function CameraRig({ mouseX, mouseY }) {
   return null
 }
 
+class SceneErrorBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+  static getDerivedStateFromError() {
+    return { hasError: true }
+  }
+  componentDidCatch(err) {
+    console.warn('[AURA] 3D Hero Scene fallback active (WebGL notice):', err?.message || err)
+  }
+  render() {
+    if (this.state.hasError) return null
+    return this.props.children
+  }
+}
+
 /* ---------- Exported Scene ---------- */
 export default function HeroScene({ mouseX, mouseY }) {
   return (
-    <Canvas
-      camera={{ position: [0, 0, 5], fov: 50 }}
-      style={{
-        position: 'absolute',
-        inset: 0,
-        pointerEvents: 'none',
-        zIndex: 3,
-      }}
-      gl={{
-        antialias: false,
-        alpha: true,
-        powerPreference: 'low-power',
-      }}
-      dpr={[1, 1.5]}
-    >
-      <CameraRig mouseX={mouseX} mouseY={mouseY} />
-      <GoldParticles count={100} />
-    </Canvas>
+    <SceneErrorBoundary>
+      <Canvas
+        camera={{ position: [0, 0, 5], fov: 50 }}
+        style={{
+          position: 'absolute',
+          inset: 0,
+          pointerEvents: 'none',
+          zIndex: 3,
+        }}
+        gl={{
+          antialias: false,
+          alpha: true,
+          powerPreference: 'low-power',
+        }}
+        dpr={[1, 1.5]}
+      >
+        <CameraRig mouseX={mouseX} mouseY={mouseY} />
+        <GoldParticles count={100} />
+      </Canvas>
+    </SceneErrorBoundary>
   )
 }

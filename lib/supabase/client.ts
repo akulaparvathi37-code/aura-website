@@ -1,26 +1,41 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl =
-  process.env.NEXT_PUBLIC_SUPABASE_URL ||
-  process.env.VITE_SUPABASE_URL ||
+const rawUrl =
+  (typeof process !== 'undefined' && process.env && (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.VITE_SUPABASE_URL)) ||
   ''
 
-const supabaseAnonKey =
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
-  process.env.VITE_SUPABASE_ANON_KEY ||
+const rawAnonKey =
+  (typeof process !== 'undefined' && process.env && (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY)) ||
   ''
 
-if (!supabaseUrl || !supabaseAnonKey) {
+function isValidUrl(str: string): boolean {
+  if (!str || typeof str !== 'string') return false
+  try {
+    const parsed = new URL(str)
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:'
+  } catch {
+    return false
+  }
+}
+
+export const isSupabaseConfigured = Boolean(
+  isValidUrl(rawUrl) && rawAnonKey && rawAnonKey !== 'placeholder-anon-key'
+)
+
+if (!isSupabaseConfigured) {
   console.warn(
     '[AURA Security] Supabase credentials not found. Define NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in your local .env file.'
   )
 }
 
+const supabaseUrl = isSupabaseConfigured ? rawUrl : 'https://placeholder.supabase.co'
+const supabaseAnonKey = isSupabaseConfigured ? rawAnonKey : 'placeholder-anon-key'
+
 export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   auth: {
     persistSession: true,
-    autoRefreshToken: true,
-    detectSessionInUrl: true,
+    autoRefreshToken: isSupabaseConfigured,
+    detectSessionInUrl: isSupabaseConfigured,
   },
 })
 
