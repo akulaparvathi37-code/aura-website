@@ -1,12 +1,19 @@
 import { createClient } from '@supabase/supabase-js'
 
-const rawUrl =
+function cleanEnv(val: any): string {
+  if (!val || typeof val !== 'string') return ''
+  return val.trim().replace(/^["']|["']$/g, '').trim()
+}
+
+const rawUrl = cleanEnv(
   (typeof process !== 'undefined' && process.env && (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.VITE_SUPABASE_URL)) ||
   ''
+)
 
-const rawAnonKey =
+const rawAnonKey = cleanEnv(
   (typeof process !== 'undefined' && process.env && (process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY)) ||
   ''
+)
 
 function isValidUrl(str: string): boolean {
   if (!str || typeof str !== 'string') return false
